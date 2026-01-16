@@ -1,5 +1,5 @@
 function Home(){
-    return <h1> Página em construção. Agradecemos a paciência! EM BREVE TEREMOS NOVIDADES BOAS QUE ESPERO ATENDER AS NECESSIDADES DE TODOS OS USUÁRIOS!</h1>
+    return <h1> Mãe, o que a senhora quer preparar de lanche hoje? ME RESPONDA NO WHATSAPP.</h1>
 }
 
 export default Home;
