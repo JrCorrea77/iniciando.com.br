@@ -1,5 +1,5 @@
 function Home(){
-    return <h1> Mãe, o que a senhora quer preparar de lanche hoje? ME RESPONDA NO WHATSAPP.</h1>
+    return <h1> Página em construção. Será a minha primeira página na web!</h1>
 }
 
 export default Home;
