@@ -1,8 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Home() {
   const [feedback, setFeedback] = useState("");
   const maxChars = 300;
+
+  const handleSubmit = () => {
+    if (feedback.trim().length === 0) {
+      if (typeof window !== "undefined") {
+        alert("Por favor, escreva uma sugestão antes de enviar.");
+      }
+      return;
+    }
+
+    if (typeof window !== "undefined") {
+      alert("Obrigado! Sua sugestão foi registrada.");
+    }
+    setFeedback("");
+  };
 
   return (
     <div style={styles.page}>
@@ -13,7 +27,7 @@ function Home() {
           style={styles.image}
         />
 
-        <h1 style={styles.title}>🚀 Site em Construção</h1>
+        <h1 style={styles.title}>Site em Construção</h1>
 
         <p style={styles.text}>
           Estamos desenvolvendo novos conteúdos e funcionalidades para oferecer
@@ -21,7 +35,7 @@ function Home() {
         </p>
 
         <p style={styles.highlight}>
-          📅 Previsão de novidades: <strong>23/01/2026</strong>
+          Previsão de novidades: <strong>23/01/2026</strong>
         </p>
 
         <p style={styles.text}>
@@ -31,7 +45,6 @@ function Home() {
           </strong>
         </p>
 
-        {/* Campo de sugestão */}
         <div style={styles.feedbackBox}>
           <textarea
             style={styles.textarea}
@@ -45,17 +58,7 @@ function Home() {
             {feedback.length} / {maxChars} caracteres
           </div>
 
-          <button
-            style={styles.button}
-            onClick={() => {
-              if (feedback.trim().length === 0) {
-                alert("Por favor, escreva uma sugestão antes de enviar.");
-                return;
-              }
-              alert("Obrigado! Sua sugestão foi registrada.");
-              setFeedback("");
-            }}
-          >
+          <button style={styles.button} onClick={handleSubmit}>
             Enviar Sugestão
           </button>
         </div>
@@ -147,8 +150,3 @@ const styles = {
 };
 
 export default Home;
-
-
-function teste() {
-     console.log("teste");
-     
