@@ -1,152 +1,89 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-function Home() {
-  const [feedback, setFeedback] = useState("");
-  const maxChars = 300;
+// Componente de Card Reutilizável para os Produtos Filhos
+const ProductCard = ({ title, description, color, link }) => (
+  <div className={`p-6 rounded-xl border border-gray-800 bg-opacity-10 bg-white hover:border-${color} transition-all duration-300 group`}>
+    <h3 className={`text-2xl font-bold mb-2 group-hover:text-${color}`}>{title}</h3>
+    <p className="text-gray-400 text-sm mb-4">{description}</p>
+    <a href={link} className={`text-xs uppercase tracking-widest font-bold text-${color}`}>Saiba mais →</a>
+  </div>
+);
 
-  const handleSubmit = () => {
-    if (feedback.trim().length === 0) {
-      if (typeof window !== "undefined") {
-        alert("Por favor, escreva uma sugestão antes de enviar.");
-      }
-      return;
-    }
-
-    if (typeof window !== "undefined") {
-      alert("Obrigado! Sua sugestão foi registrada.");
-    }
-    setFeedback("");
-  };
-
+const HomePage = () => {
   return (
-    <div style={styles.page}>
-      <div style={styles.card}>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/7486/7486740.png"
-          alt="Site em construção"
-          style={styles.image}
-        />
-
-        <h1 style={styles.title}>Página em Construção!</h1>
-
-        <p style={styles.text}>
-          Estamos desenvolvendo novos conteúdos e funcionalidades para oferecer
-          uma experiência ainda melhor.
-        </p>
-
-        <p style={styles.highlight}>
-          Previsão de novidades: <strong>23/01/2026</strong>
-        </p>
-
-        <p style={styles.text}>
-          <strong>
-            Este site está sendo criado para aprendizado e prática, com foco em
-            dinâmica e diversão. Sua opinião é muito importante para nós!
-          </strong>
-        </p>
-
-        <div style={styles.feedbackBox}>
-          <textarea
-            style={styles.textarea}
-            placeholder="Digite sua ideia ou opinião para melhorar o site (máx. 300 caracteres)..."
-            maxLength={maxChars}
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-          />
-
-          <div style={styles.counter}>
-            {feedback.length} / {maxChars} caracteres
-          </div>
-
-          <button style={styles.button} onClick={handleSubmit}>
-            Enviar Sugestão
+    <div className="min-h-screen bg-datryx-dark text-white font-sans selection:bg-datryx-cyan selection:text-black">
+      
+      {/* Navegação Corporativa */}
+      <nav className="flex justify-between items-center p-8 max-w-7xl mx-auto">
+        <div className="text-2xl font-black tracking-tighter">
+          DATRYX<span className="text-datryx-cyan">.</span>
+        </div>
+        <div className="space-x-8 text-sm font-medium text-gray-400">
+          <a href="#solucoes" className="hover:text-datryx-cyan transition">Soluções</a>
+          <a href="#ecossistema" className="hover:text-datryx-cyan transition">Ecossistema</a>
+          <button className="border border-datryx-cyan px-6 py-2 rounded-full text-datryx-cyan hover:bg-datryx-cyan hover:text-black transition">
+            Contato
           </button>
         </div>
+      </nav>
 
-        <p style={styles.footer}>
-          Obrigado pela paciência e por contribuir com a evolução do site!
+      {/* Hero Section: Futurismo e Impacto */}
+      <main className="max-w-7xl mx-auto px-8 pt-20 pb-32 text-center">
+        <div className="relative inline-block">
+          {/* Brilho de fundo simulando o ícone da logo */}
+          <div className="absolute inset-0 bg-datryx-cyan blur-[100px] opacity-20 rounded-full"></div>
+          
+          <h1 className="relative text-6xl md:text-8xl font-black mb-6 tracking-tight">
+            Transformando dados em <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-datryx-cyan">
+              inteligência viva.
+            </span>
+          </h1>
+        </div>
+        
+        <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-10">
+          Arquitetura digital de alta performance para empresas que buscam 
+          clareza, conexão e decisões baseadas em algoritmos.
         </p>
-      </div>
+      </main>
+
+      {/* Seção de Ecossistema: SCRIPTUM e NEXUM */}
+      <section id="ecossistema" className="max-w-7xl mx-auto px-8 py-20 border-t border-gray-900">
+        <div className="grid md:grid-cols-3 gap-8">
+          
+          {/* Base: SCRIPTUM */}
+          <ProductCard 
+            title="SCRIPTUM" 
+            description="Gestão documental e digitalização inteligente. Organize o caos e recupere sua memória institucional."
+            color="scriptum-green"
+            link="/scriptum"
+          />
+
+          {/* Core: NEXUM */}
+          <ProductCard 
+            title="NEXUM" 
+            description="O elo de ligação entre seus dados. Gerenciamento de fluxo e integração total de sistemas."
+            color="nexum-purple" 
+            link="/nexum"
+          />
+
+          {/* Master: DATRYX SYSTEMS */}
+          <ProductCard 
+            title="SYSTEMS" 
+            description="Desenvolvimento de software sob medida e B.I. avançado alimentado por seu ecossistema de dados."
+            color="datryx-cyan"
+            link="/systems"
+          />
+
+        </div>
+      </section>
+
+      {/* Footer Profissional */}
+      <footer className="p-12 text-center text-gray-600 text-xs border-t border-gray-900">
+        <p>© 2026 DATRYX | Do arquivo ao algoritmo.</p>
+      </footer>
     </div>
   );
-}
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
-    fontFamily: "Arial, Helvetica, sans-serif",
-    padding: "20px",
-  },
-  card: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    borderRadius: "16px",
-    padding: "40px",
-    maxWidth: "650px",
-    width: "100%",
-    textAlign: "center",
-    color: "#ffffff",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-  },
-  image: {
-    width: "120px",
-    marginBottom: "20px",
-  },
-  title: {
-    fontSize: "2.2rem",
-    marginBottom: "15px",
-  },
-  text: {
-    fontSize: "1.1rem",
-    lineHeight: "1.6",
-    marginBottom: "15px",
-  },
-  highlight: {
-    fontSize: "1.1rem",
-    marginBottom: "20px",
-    color: "#00d4ff",
-  },
-  feedbackBox: {
-    marginTop: "20px",
-    textAlign: "left",
-  },
-  textarea: {
-    width: "100%",
-    minHeight: "120px",
-    padding: "12px",
-    borderRadius: "8px",
-    border: "none",
-    fontSize: "1rem",
-    resize: "none",
-    outline: "none",
-  },
-  counter: {
-    textAlign: "right",
-    fontSize: "0.85rem",
-    marginTop: "5px",
-    opacity: 0.8,
-  },
-  button: {
-    width: "100%",
-    marginTop: "15px",
-    padding: "12px",
-    borderRadius: "8px",
-    border: "none",
-    backgroundColor: "#00d4ff",
-    color: "#003344",
-    fontSize: "1rem",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-  footer: {
-    marginTop: "25px",
-    fontSize: "0.95rem",
-    opacity: 0.85,
-    textAlign: "center",
-  },
 };
 
-export default Home;
+export default HomePage;
