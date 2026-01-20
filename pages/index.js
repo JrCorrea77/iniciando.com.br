@@ -4,7 +4,7 @@ function Home() {
             <div style={styles.card}>
                 
                 <img
-                    src="https://cdn-icons-png.flaticon.com/512/7486/7486740.png"
+                    src="https://cdn-icons-mp4.flaticon.com/512/19004/19004075.mp4"
                     alt="Site em construção"
                     style={styles.image}
                 />
