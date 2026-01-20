@@ -27,7 +27,7 @@ function Home() {
           style={styles.image}
         />
 
-        <h1 style={styles.title}>🚀 Site em Construção! 🚀</h1>
+        <h1 style={styles.title}>Página em Construção!</h1>
 
         <p style={styles.text}>
           Estamos desenvolvendo novos conteúdos e funcionalidades para oferecer
@@ -35,7 +35,7 @@ function Home() {
         </p>
 
         <p style={styles.highlight}>
-          📅Previsão de novidades: <strong>23/01/2026</strong>📅
+          Previsão de novidades: <strong>23/01/2026</strong>
         </p>
 
         <p style={styles.text}>
