@@ -23,8 +23,8 @@ function Home() {
                 </p>
 
                 <p style={styles.text}>
-                    Este site está sendo criado utilizando a plataforma <strong>GitHub</strong>,
-                    com foco em desempenho, segurança e inovação.
+                    <strong>Este site está sendo criado para aprendizado e prática,
+                    com foco em dinâmica e diversão.</strong>
                 </p>
 
                 <p style={styles.footer}>
