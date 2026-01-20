@@ -22,8 +22,7 @@ function Home() {
     <div style={styles.page}>
       <div style={styles.card}>
         <img
-          /*src="https://cdn-icons-png.flaticon.com/512/7486/7486740.png"*/
-          src="https://chatgpt.com/backend-api/estuary/content?id=file_000000005a98720e802deece9e67676a&ts=491372&p=fs&cid=1&sig=1964ddb89a92e1b1611fcc9b0d6ed1950cd93e9ea0429c38abb0882d083acd03&v=0"
+          src="https://cdn-icons-png.flaticon.com/512/7486/7486740.png"
           alt="Site em construção"
           style={styles.image}
         />
